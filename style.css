@@ -1,0 +1,119 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #141e30, #243b55);
+    --calc-bg: rgba(255, 255, 255, 0.05);
+    --calc-border: rgba(255, 255, 255, 0.1);
+    --text-color: #ffffff;
+    --btn-bg: rgba(255, 255, 255, 0.1);
+    --btn-hover: rgba(255, 255, 255, 0.2);
+    --op-bg: #ff9f0a;
+    --op-hover: #cc7f08;
+    --clear-bg: #ff3b30;
+    --clear-hover: #cc2f26;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+}
+
+.calculator {
+    background: var(--calc-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--calc-border);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    width: 340px;
+}
+
+.display {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--calc-border);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+}
+
+.current-operand {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 500;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.current-operand::-webkit-scrollbar {
+    display: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    border: none;
+    background: var(--btn-bg);
+    color: var(--text-color);
+    font-size: 1.25rem;
+    padding: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+button:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button.operator {
+    background: var(--op-bg);
+    font-weight: bold;
+}
+
+button.operator:hover {
+    background: var(--op-hover);
+}
+
+button.clear {
+    background: var(--clear-bg);
+}
+
+button.clear:hover {
+    background: var(--clear-hover);
+}
+
+button.span-two {
+    grid-column: span 2;
+}
